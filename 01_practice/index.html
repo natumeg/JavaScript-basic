@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript基礎</title>
+</head>
+<body id="body">
+    <div id="inner">
+    <h1 id="heading">練習の見出し</h1>
+    <P id="p">変化させたい要素</P>
+    <img id="image" src="https://picsum.photos/500/300?image=0"> <!--ダミー記事-->
+    </div>
+
+<script>
+    let p = document.getElementById('p');
+    let heading = document.getElementById('heading');
+    let inner = document.getElementById('inner');
+    const image = document.getElementById('image');
+    let src = image.getAttribute('src');
+
+    //body
+    document.getElementById('body').style.backgroundColor = 'rgb(0,0,200,0.5)';
+    //
+    //inner
+    inner.style.width = '80%';
+    inner.style.marginLeft = 'auto';
+    inner.style.marginRight = 'auto';
+    //
+    //文
+    p.style.color = "#fff000";
+    p.style.backgroundColor = 'rgb(200,0,150,0.5)';
+    p.style.borderRadius = '25px';
+    p.style.padding = '10px 20px';
+    //
+    //見出し
+    heading.style.textAlign = "center";
+    //
+    //画像
+    image.setAttribute('src', src);
+    console.log(src);
+    image.style.display = 'block';
+    image.style.marginLeft = 'auto';
+    image.style.marginRight = 'auto';
+    //
+    // マウスイベント
+    p.addEventListener('mouseover',function(){
+        console.log(image);
+        image.setAttribute('src', 'https://picsum.photos/500/300?image=50');
+    });
+    p.addEventListener('mouseout',function(){
+        image.setAttribute('src', src);
+    });
+    //
+
+</script>
+</body>
+</html>

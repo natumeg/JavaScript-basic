@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数</title>
+</head>
+
+<body>
+    <button id="plus">+</button>
+    <script>
+        let plus = document.getElementById('plus');
+        let x = 0;
+        console.log(plus);
+        plus.addEventListener('click', function () {
+            x += 1;
+            console.log(x);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数</title>
+</head>
+
+<body>
+    <p id="result">文字を大きくする</p>
+    <button id="plus">+</button>
+    <script>
+        let plus = document.getElementById('plus');
+        let result = document.getElementById('result');
+        let x = 16;
+
+        plus.addEventListener('click', function () {
+            result.style.fontSize = `${x += 1}px`;
+            console.log(x);
+        });
+    </script>
+</body>
+
+</html>

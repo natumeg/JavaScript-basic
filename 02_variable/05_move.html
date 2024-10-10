@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数</title>
+</head>
+
+<body>
+    <div>
+        <button id="left">←</button>
+        <button id="center">■</button>
+        <button id="right">→</button>
+    </div>
+
+    <img id="monster" src="https://pbs.twimg.com/media/EXae-7lWkAANYU6.png" alt="">
+
+    <script>
+        const left = document.getElementById('left');
+        const center = document.getElementById('center');
+        const right = document.getElementById('right');
+        const monster = document.getElementById('monster');
+        let x = 0;
+
+        left.addEventListener('click', function () {
+            monster.style.transform = `translateX(${x -= 5}px)`;
+            console.log(monster);
+        });
+        center.addEventListener('click', function () {
+            monster.style.transform = `translateX(${x = 0}px)`;
+            console.log(monster);
+        });
+        right.addEventListener('click', function () {
+            monster.style.transform = `translateX(${x += 5}px)`;
+            console.log(monster);
+        });
+    </script>
+</body>
+
+</html>

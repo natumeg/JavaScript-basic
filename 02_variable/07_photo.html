@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数</title>
+</head>
+
+<body>
+    <div>
+        <button id="plus">+</button>
+        <button id="set">0</button>
+    </div>
+    <p id="result">https://picsum.photos/400/300?image=0</p>
+    <img id="photo" src="https://picsum.photos/400/300?image=0">
+
+    <script>
+        const plus = document.getElementById('plus');
+        const set = document.getElementById('set');
+        const result = document.getElementById('result');
+        const photo = document.getElementById('photo');
+        let src = photo.getAttribute('src');
+        let x = 0;
+
+        plus.addEventListener('click', function () {
+            x += 1;
+            set.innerHTML = x;
+        });
+
+        set.addEventListener('click', function () {
+            result.innerHTML = `https://picsum.photos/400/300?image=${x}`;
+            photo.setAttribute('src', `https://picsum.photos/400/300?image=${x}`);
+        });
+    </script>
+</body>
+
+</html>
