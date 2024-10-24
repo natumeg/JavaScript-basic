@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習06クリックゲーム応用</title>
+</head>
+
+<body>
+    <img id="image" src="./monster.png" alt="">
+    <p id="count">0回</p>
+    <script>
+        const image = document.getElementById('image');
+        let count = document.getElementById('count');
+        let x = 0;
+
+        image.addEventListener('click', function () {
+            x += 1;
+            count.innerHTML = `${x}回`;
+            if (x == 10 || x == 20) {
+                count.innerHTML = `${x}回達成、おめでとう！`;
+            } else if (x >= 30) {
+                count.innerHTML = '30回クリア！おめでとう！';
+            }
+            console.log(x);
+        });
+
+    </script>
+</body>
+
+</html>

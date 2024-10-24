@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習07モンスター</title>
+</head>
+
+<body>
+    <img id="image" src="./monster.png" alt="">
+    <p id="hp">HP:10</p>
+    <script>
+        const image = document.getElementById('image');
+        let hp = document.getElementById('hp');
+        let x = 10;
+
+        image.addEventListener('click', function () {
+            x -= 1;
+            console.log(image.classList);
+            if (x > 0) {
+                hp.innerHTML = `HP:${x}`;
+            } else if (x < 0) {
+                hp.innerHTML = `HP:0`;
+                image.classList.add('finish');
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -20,13 +20,13 @@
         const blue = document.getElementById('blue');
 
         red.addEventListener('click', function () {
-            document.body.style.backgroundColor = '#f00';
+            document.body.style.backgroundColor = `#${red.innerHTML}`;
         });
         green.addEventListener('click', function () {
-            document.body.style.backgroundColor = '#0f0';
+            document.body.style.backgroundColor = `#${green.innerHTML}`;
         });
         blue.addEventListener('click', function () {
-            document.body.style.backgroundColor = '#00f';
+            document.body.style.backgroundColor = `#${blue.innerHTML}`;
         });
     </script>
 </body>
