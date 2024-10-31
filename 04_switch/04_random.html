@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03おみくじ</title>
+</head>
+
+<body>
+    <button id="btn">占う</button>
+    <img id="img" src="./image/omikuji.png" alt="">
+    <p id="message">何か一言が表示されます。</p>
+    <ul>
+        <li id="dai">大吉:０回</li>
+        <li id="chu">中吉:０回</li>
+        <li id="sho">小吉:０回</li>
+        <li id="kyo">凶:０回</li>
+        <li id="dak">大凶:０回</li>
+    </ul>
+    <style>
+        ul {
+            display: flex;
+        }
+
+        li {
+            margin-right: 20px;
+            list-style: none;
+        }
+
+        #img {
+            transition: all .5s ease;
+        }
+
+        .rotate {
+            transform: rotateY(360deg);
+        }
+    </style>
+    <script>
+        const img = document.getElementById('img');
+        let src = img.getAttribute('src');
+        const btn = document.getElementById('btn');
+        const result = document.getElementById('result');
+        const message = document.getElementById('message');
+        let dai = document.getElementById('dai');
+        let chu = document.getElementById('chu');
+        let sho = document.getElementById('sho');
+        let kyo = document.getElementById('kyo');
+        let dak = document.getElementById('dak');
+        let count1 = 0;
+        let count2 = 0;
+        let count3 = 0;
+        let count4 = 0;
+        let count5 = 0;
+
+        btn.addEventListener('click', function () {
+            let r = Math.floor(Math.random() * 6);
+            img.classList.toggle('rotate');
+
+            switch (r) {
+                case 1:
+                    count1 += 1;
+                    dai.innerHTML = `大吉：${count1}回`;
+                    img.setAttribute('src', `
+                    ./image/daikichi.png`);
+                    message.innerHTML = 'ガチャで欲しいものが出る';
+                    break;
+                case 2:
+                    count2 += 1;
+                    chu.innerHTML = `中吉：${count2}回`;
+                    img.setAttribute('src', `
+                    ./image/chuukichi.png`);
+                    message.innerHTML = '体の調子がいい';
+                    break;
+                case 3:
+                    count3 += 1;
+                    sho.innerHTML = `小吉：${count3}回`;
+                    img.setAttribute('src', `
+                    ./image/syoukichi.png`);
+                    message.innerHTML = '犬に好かれる';
+                    break;
+                case 4:
+                    count4 += 1;
+                    kyo.innerHTML = `凶：${count4}回`;
+                    img.setAttribute('src', `
+                    ./image/kyou.png`);
+                    message.innerHTML = 'コンタクトが目から落ちる';
+                    break;
+                case 5:
+                    count5 += 1;
+                    dak.innerHTML = `大凶：${count5}回`;
+                    img.setAttribute('src', `
+                    ./image/daikyou.png`);
+                    message.innerHTML = '永眠';
+                    break;
+                default:
+            }
+
+            switch (count1) {
+                case 5:
+                    message.innerHTML = '〜いいこと山盛り〜';
+            }
+        })
+    </script>
+</body>
+
+</html>
