@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while文</title>
+</head>
+
+<body>
+
+    <script>
+        // 偶数
+        let num1 = 0;
+        while (num1 <= 10) {
+            console.log(num1);
+            num1 += 2;
+        }
+
+        // 奇数
+        let num2 = 1;
+        while (num2 <= 10) {
+            if (num % 2 !== 0) {
+                console.log(num2);
+            }
+            num2 += 2;
+        }
+
+        // りんご五回
+        let num3 = 0;
+        while (num3 < 5) {
+            console.log('りんご');
+            num3 += 1;
+        }
+
+        let num4 = 0, sum = 0;
+        while (num4 <= 100) {
+            sum += num4;
+            num4 += 1;
+        }
+
+        console.log(sum);
+
+    </script>
+</body>
+
+</html>

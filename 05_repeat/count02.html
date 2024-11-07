@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウント応用</title>
+</head>
+
+<body>
+    <button id="count">カウント</button>
+    <button id="total">表示</button>
+    <p id="number"></p>
+
+    <script>
+        const count = document.getElementById('count');
+        let total = document.getElementById('total');
+        let number = document.getElementById('number');
+        let num = 0;
+
+        count.addEventListener('click', function () {
+            num += 1;
+            number.innerHTML = num;
+        });
+
+        total.addEventListener('click', function () {
+
+            let down = num;
+            while (num > 0) {
+                num -= 1;
+                down += `,${num}`;
+
+            }
+            number.innerHTML = down;
+
+        });
+
+    </script>
+</body>
+
+</html>

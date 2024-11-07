@@ -8,100 +8,126 @@
 </head>
 
 <body>
-    <button id="btn">占う</button>
-    <img id="img" src="./image/omikuji.png" alt="">
-    <p id="message">何か一言が表示されます。</p>
-    <ul>
-        <li id="dai">大吉:０回</li>
-        <li id="chu">中吉:０回</li>
-        <li id="sho">小吉:０回</li>
-        <li id="kyo">凶:０回</li>
-        <li id="dak">大凶:０回</li>
-    </ul>
-    <style>
-        ul {
-            display: flex;
-        }
-
-        li {
-            margin-right: 20px;
-            list-style: none;
-        }
-
-        #img {
-            transition: all .5s ease;
-        }
-
-        .rotate {
-            transform: rotateY(360deg);
-        }
-    </style>
-    <script>
-        const img = document.getElementById('img');
-        let src = img.getAttribute('src');
-        const btn = document.getElementById('btn');
-        const result = document.getElementById('result');
-        const message = document.getElementById('message');
-        let dai = document.getElementById('dai');
-        let chu = document.getElementById('chu');
-        let sho = document.getElementById('sho');
-        let kyo = document.getElementById('kyo');
-        let dak = document.getElementById('dak');
-        let count1 = 0;
-        let count2 = 0;
-        let count3 = 0;
-        let count4 = 0;
-        let count5 = 0;
-
-        btn.addEventListener('click', function () {
-            let r = Math.floor(Math.random() * 6);
-            img.classList.toggle('rotate');
-
-            switch (r) {
-                case 1:
-                    count1 += 1;
-                    dai.innerHTML = `大吉：${count1}回`;
-                    img.setAttribute('src', `
-                    ./image/daikichi.png`);
-                    message.innerHTML = 'ガチャで欲しいものが出る';
-                    break;
-                case 2:
-                    count2 += 1;
-                    chu.innerHTML = `中吉：${count2}回`;
-                    img.setAttribute('src', `
-                    ./image/chuukichi.png`);
-                    message.innerHTML = '体の調子がいい';
-                    break;
-                case 3:
-                    count3 += 1;
-                    sho.innerHTML = `小吉：${count3}回`;
-                    img.setAttribute('src', `
-                    ./image/syoukichi.png`);
-                    message.innerHTML = '犬に好かれる';
-                    break;
-                case 4:
-                    count4 += 1;
-                    kyo.innerHTML = `凶：${count4}回`;
-                    img.setAttribute('src', `
-                    ./image/kyou.png`);
-                    message.innerHTML = 'コンタクトが目から落ちる';
-                    break;
-                case 5:
-                    count5 += 1;
-                    dak.innerHTML = `大凶：${count5}回`;
-                    img.setAttribute('src', `
-                    ./image/daikyou.png`);
-                    message.innerHTML = '永眠';
-                    break;
-                default:
+    <div>
+        <img id="img" class="img" src="https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/omikuji.png"
+            alt="">
+        <button id="btn">占う</button>
+        <p id="message">何か一言が表示されます。</p>
+        <ul id="count"></ul>
+        <style>
+            body {
+                margin-top: 50px;
+                width: 80%;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
             }
 
-            switch (count1) {
-                case 5:
-                    message.innerHTML = '〜いいこと山盛り〜';
+            ul {
+                display: flex;
             }
-        })
-    </script>
+
+            li {
+                list-style: none;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .message {
+                transition: all .5s ease;
+            }
+
+            #btn {
+                width: 150px;
+                height: 70px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                border-radius: 50px;
+                border: none;
+                background-color: brown;
+                color: aliceblue;
+                font-size: 20px;
+            }
+
+            .rotateY {
+                transform: rotateY(360deg);
+                transition: all .5s ease;
+            }
+
+            .rotateX {
+                transform: rotateX(360deg);
+                transition: all .5s ease;
+            }
+        </style>
+        <script>
+            const img = document.getElementById('img');
+            const btn = document.getElementById('btn');
+            const message = document.getElementById('message');
+            const path = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji';
+            const count = document.getElementById('count');
+
+            let daikichi = 0;
+            let chuukichi = 0;
+            let syoukichi = 0;
+            let kyou = 0;
+            let daikyou = 0;
+
+            count.innerHTML = `<li>大吉：${daikichi}</li>
+                        <li>中吉：${chuukichi}</li>
+                        <li>小吉：${syoukichi}</li>
+                        <li>凶：${kyou}</li>
+                        <li>大凶：${daikyou}</li>`;
+
+            btn.addEventListener('click', function () {
+                let r = Math.floor(Math.random() * 11);
+
+                img.classList.toggle('rotateY');
+                message.classList.toggle('rotateX');
+
+                switch (r) {
+                    case 1:
+                        daikichi += 1;
+                        img.setAttribute('src', `${path}/daikichi.png`);
+                        message.innerHTML = 'ガチャで欲しいものが出る';
+                        break;
+                    case 2, 3:
+                        chuukichi += 1;
+                        img.setAttribute('src', `${path}/chuukichi.png`);
+                        message.innerHTML = '体の調子がいい';
+                        break;
+                    case 4, 5, 6, 7:
+                        syoukichi += 1;
+                        img.setAttribute('src', `${path}/syoukichi.png`);
+                        message.innerHTML = '犬に好かれる';
+                        break;
+                    case 8, 9:
+                        kyou += 1;
+                        img.setAttribute('src', `${path}/kyou.png`);
+                        message.innerHTML = 'コンタクトが目から落ちる';
+                        break;
+                    case 10:
+                        daikyou += 1;
+                        img.setAttribute('src', `${path}/daikyou.png`);
+                        message.innerHTML = '永眠';
+                        break;
+                    default:
+                        console.log('エラー');
+                        break;
+                }
+
+                switch (daikichi) {
+                    case 5:
+                        message.innerHTML = '〜いいこと山盛り〜';
+                }
+
+                count.innerHTML = `<li>大吉：${daikichi}</li>
+                        <li>中吉：${chuukichi}</li>
+                        <li>小吉：${syoukichi}</li>
+                        <li>凶：${kyou}</li>
+                        <li>大凶：${daikyou}</li>`;
+            });
+        </script>
 </body>
 
 </html>
