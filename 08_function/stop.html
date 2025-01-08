@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ストップゲーム</title>
+</head>
+
+<body>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        button {
+            width: 250px;
+            padding: 30px 50px;
+            font-size: 40px;
+            border-radius: 40px;
+        }
+
+        .start {
+            background-color: rgb(246, 113, 113);
+        }
+
+        .stop {
+            background-color: rgb(126, 148, 255);
+        }
+
+        .count {
+            font-size: 100px;
+        }
+
+        .comment {
+            transform: scale(4);
+            transition: 3;
+        }
+    </style>
+    <p class="comment"></p>
+    <p class="count">0</p>
+    <button class="start">START</button>
+    <button class="stop">STOP</button>
+
+    <script>
+        const startBtn = document.querySelector(".start");
+        const stopBtn = document.querySelector(".stop");
+        const count = document.querySelector(".count");
+        const comment = document.querySelector(".comment");
+        let num = 0;
+        let timer;
+
+        const countUp = () => {
+            console.log(num++);
+            count.innerHTML = num;
+        }
+
+        startBtn.addEventListener("click", () => {
+            num = 0;
+            count.innerHTML = "";
+            clearInterval(timer);
+            timer = setInterval(countUp, 50);
+        });
+
+        stopBtn.addEventListener("click", () => {
+            clearInterval(timer);
+            if (98 <= num && num <= 102) {
+                comment.innerHTML = "おしい！";
+            }
+            if (num == 100) {
+                comment.innerHTML = "すごい！";
+            }
+        });
+
+    </script>
+</body>
+
+</html>

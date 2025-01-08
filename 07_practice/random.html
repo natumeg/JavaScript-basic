@@ -11,9 +11,6 @@
     <button id="btn">ユーモアをもらう</button>
     <p id="result">ウケる一言が表示されます。</p>
     <script>
-        const btn = document.getElementById('btn');
-        const result = document.getElementById('result');
-
         const words = [
             "LINEで特に何も送られて来てないのに「ごめん寝てた」って送るとウケます。",
             "ちょっと揉めそうになってるタイミングで「あ、じゃあそこ試合決定ですね」って言うとウケます。",
@@ -27,10 +24,12 @@
             "遊園地でジェットコースターの順番待ちしている時に「混んでいるから座れないかもよ」と言うとウケます。",
         ];
 
-        btn.addEventListener('click', function () {
-            let r = Math.floor(Math.random() * words.length);
-            result.innerHTML = words[r];
-            console.log(result);
+        const btn = document.querySelector("#btn");
+        const result = document.querySelector("#result");
+
+        btn.addEventListener("click", () => {
+            const randomNum = Math.floor(Math.random() * words.length);
+            result.innerHTML = words[randomNum];
         });
     </script>
 </body>

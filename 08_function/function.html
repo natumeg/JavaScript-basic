@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関数</title>
+</head>
+
+<body>
+    <style>
+        button {
+            border-radius: 50px;
+            border: none;
+            padding: 20px 30px;
+        }
+    </style>
+
+    <h1>見出し</h1>
+    <p>本文</p>
+    <button>ボタン</button>
+    <script>
+        // 名前をつけて定義
+        // function testFunc(val1 = 10, val2 = 20) {
+        //     return val1 + val2;
+        // }
+
+        // 実行
+        // console.log(testFunk());
+        // testFunc(30, 50);
+
+
+        // 練習1
+        // let doller = changeDoller(100);
+        // console.log(`${doller}ドル`);
+
+        // function changeDoller(yen) {
+        //     return yen * 150;
+        // }
+
+        // 練習2
+        // let text = setText();
+        // console.log(text);
+
+        // function setText(txt = "takagi") {
+        //     return `Hello! ${txt}`;
+        // }
+
+        // 関数式
+        // const testFunc = function (val1, val2) {
+        //     return val1 + val2;
+        // }
+
+        // 関数の実行
+        // let num = testFunc(10, 20);
+        // console.log(num);
+
+
+        // 練習3
+        // const setZero = (val) => {
+        //     if (val < 10) {
+        //         val = `0${val}`
+        //     }
+        //     return val;
+        // }
+
+        // console.log(setZero(10));
+        // let sum = 0;
+        // const average = (val) => {
+        //     for (let i = 0; i < val.length; i++) {
+        //         sum += val[i];
+        //     }
+        //     return `${sum /= val.length}`;
+        // }
+
+
+        // console.log(average([5, 10, 15, 20, 25]));
+        const clickEvent = (e) => {
+            console.log(e.target);
+        };
+
+        window.addEventListener("click", (e) => {
+            console.log(e.target);
+
+            e.target.style.backgroundColor = "#f00";
+            e.target.style.color = "#fff";
+        }); // 括弧をつけるとイベント発生前に実行されることに注意！
+    </script>
+</body>
+
+</html>

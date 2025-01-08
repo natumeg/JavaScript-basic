@@ -15,6 +15,8 @@
         window.addEventListener("resize", function () {
             result.innerHTML = `${window.innerWidth}px:${window.innerHeight}px`;
 
+            // console.log(◯,◯);間まで区切ると複数表示
+
             if (window.innerHeight <= 400) {
                 result.style.color = '#f00';
             } else if (window.innerHeight > 400) {

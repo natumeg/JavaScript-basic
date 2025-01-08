@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイマー処理</title>
+</head>
+
+<body>
+    <script>
+        let count = 0;
+        let timer;
+
+        const countUp = () => {
+            console.log(count++);
+
+            timer = setTimeout(countUp, 1000);
+            if (count > 5) {
+                clearTimeout(timer);
+            };
+        };
+
+        countUp = ();
+
+    </script>
+</body>
+
+</html>

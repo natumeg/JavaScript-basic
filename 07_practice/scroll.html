@@ -24,8 +24,16 @@
             border-radius: 50%;
             background: rgba(0, 0, 0, 0.5);
             color: #fff;
+            /* 要素の真ん中に持ってきたい時
+            矢印が丸の真ん中に来る */
             font-size: 1rem;
             line-height: 1rem;
+            /* １行ではない時
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            */
+
             text-align: center;
             cursor: pointer;
             display: none;
@@ -39,16 +47,18 @@
     <button id="toTop">↑</button>
 
     <script>
+        const toTop = document.querySelector("#toTop");
+        const limit = 300;
+
         window.addEventListener("scroll", function () {
-            if (toTop.classList.contains('active') && window.scrollY < 300) {
-                toTop.classList.remove('active');
-                document.toTop.style.display = 'none';
-            } else if (window.scrollY > 300) {
-                toTop.classList.add('active');
-                document.toTop.style.display = 'block';
+            console.log(window.scrollY);
+
+            if (window.scrollY > limit && !toTop.classList.contains("active")) {
+                toTop.classList.add("active");
+            } else if (window.scrollY <= limit && toTop.classList.contains("active")) {
+                toTop.classList.remove("active");
             }
         });
-
     </script>
 </body>
 
